@@ -1,5 +1,25 @@
 <ion-view view-title="Discover">
-  <ion-content>
-    <h1>People</h1>
-  </ion-content>
+    <div class="bar bar-subheader search-bar">
+        <label class="item item-input no-padding">
+            <i class="icon ion-search placeholder-icon"></i>
+            <input type="text" placeholder="Search" ng-model="searchTerm">
+        </label>
+    </div>
+
+    <ion-content>
+        <div class="discover-tab">
+            <div class="list card event" ng-repeat="item in people | filter:searchTerm">
+                <div class="item item-avatar">
+                    <img src="https://images.unsplash.com/photo-1444146644393-241099c1593d?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=529371b214d75f5358fff0e29468f505">
+                    <h2>{{item.name}}</h2>
+                    <p>{{item.status}}</p>
+                    <span ng-if="item.distance" class="distance">
+                        <i class="ion-ios-navigate-outline"></i> 
+                        {{item.distance}}km
+                	</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </ion-content>
 </ion-view>

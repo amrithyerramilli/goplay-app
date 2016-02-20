@@ -61,7 +61,7 @@ angular.module('goplay', ['ionic', 'goplay.controllers'])
             }
         })
         .state('play.discover.events', {
-            url: '/events/:category',
+            url: '/events',
             views: {
                 'tab-events': {
                     templateUrl: 'templates/discover-events.html',

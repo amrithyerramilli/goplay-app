@@ -11,16 +11,16 @@
                     <div class="list card list-inset">
                         <label class="item item-input">
                             <label class="item item-input">
-                                <input type="search" placeholder="Choose your sport.." ng-model="vm.searchTerm" ng-change="search()">
+                                <input type="search" placeholder="Choose your sport.." ng-model="searchTerm" ng-change="search()">
                             </label>
                         </label>
                     </div>
                 </div>
             </div>
-            <div class="row" ng-hide="vm.SearchTerm">
+            <div class="row" ng-hide="SearchTerm">
                 <div class="col">
                     <div class="list card list-inset">
-                        <div class="item" ng-if="vm.searchTerm" ng-repeat="category in categories | filter:vm.searchTerm" ng-click="selectCategory(category)">
+                        <div class="item" ng-if="searchTerm" ng-repeat="category in categories | filter:searchTerm" ng-click="selectCategory(category)">
                             {{category}}
                         </div>
                     </div>

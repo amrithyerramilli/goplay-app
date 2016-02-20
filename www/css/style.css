@@ -1,12 +1,49 @@
 /* Empty. Add your own CSS if you like */
 
 .feels-container {
-  display: table !important;
-  width: 100% !important;
-  height: 100% !important;
+    display: table !important;
+    width: 100% !important;
+    height: 100% !important;
 }
+
 .feels-content {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.event .distance {
+    float: right;
+    font-size: 11x;
+}
+
+.discover-tab {
+    padding-top: 40px;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+.platform-android .bar-subheader.search-bar {
+    top: 93px;
+}
+
+.event .feed {
+    height: 250px;
+    background-size: cover;
+}
+
+.event .feed:after {
+    content: '';
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    top: 0;
+    left: 0;
+    background: rgba(255, 0, 92, 0.6);
+}
+
+.tinted-image {
+    background: linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(image.jpg);
 }
