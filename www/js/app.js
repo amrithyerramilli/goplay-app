@@ -37,17 +37,17 @@ angular.module('goplay', ['ionic', 'goplay.controllers'])
             controller: 'FeelsCtrl'
         })
         .state('play', {
-            url:'/play',
-            abstract:true,
-            templateUrl:'templates/play.html', // side menu
+            url: '/play',
+            abstract: true,
+            templateUrl: 'templates/play.html', // side menu
             // controller:'PlayCtrl'
         })
         .state('play.discover', {
             url: '/discover',
             abstract: true,
-            views:{
-                'menuContent':{
-                    templateUrl:'templates/discover.html' // tabs
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/discover.html' // tabs
                 }
             }
         })
@@ -56,7 +56,7 @@ angular.module('goplay', ['ionic', 'goplay.controllers'])
             views: {
                 'tab-people': {
                     templateUrl: 'templates/discover-people.html',
-                    controller : 'PeopleCtrl'
+                    controller: 'PeopleCtrl'
                 }
             }
         })
@@ -65,9 +65,14 @@ angular.module('goplay', ['ionic', 'goplay.controllers'])
             views: {
                 'tab-events': {
                     templateUrl: 'templates/discover-events.html',
-                    controller : 'EventsCtrl'
+                    controller: 'EventsCtrl'
                 }
             }
+        })
+        .state('profile', {
+            url: '/profile/:userId',
+            templateUrl: 'templates/profile.html',
+            controller: 'ProfileCtrl'
         });
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/feels');

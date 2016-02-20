@@ -6,13 +6,24 @@ angular.module('goplay.services')
         var _events = [{
             event: {
                 title: "Footy",
-                fromDate: moment("2016-02-20 11:30"),
-                toDate: moment("2016-02-20 12:30"),
+                fromDate: "2016-02-20 11:30",
+                toDate: "2016-02-20 12:30",
                 location: {
                     name: "Mad Park",
                     latitude: 12.1234,
                     longitude: 78.1234
                 },
+                teams: [{
+                    _id: "123",
+                    name: "World XI",
+                    owner: "AY",
+                    userIds: ["Farhan", "Anirudh"]
+                }, {
+                    _id: "345",
+                    name: "Gully XI",
+                    owner: "AvK",
+                    userIds: ["Amrith"]
+                }]
             },
             feeds: [{
                 title: "Join me for #Footy",
@@ -26,13 +37,24 @@ angular.module('goplay.services')
         }, {
             event: {
                 title: "Pro Football",
-                fromDate: moment("2016-02-21 11:30"),
-                toDate: moment("2016-02-23 11:30"),
+                fromDate: "2016-02-21 11:30",
+                toDate: "2016-02-23 11:30",
                 location: {
                     name: "Decathlon",
                     latitude: 12.1234,
                     longitude: 78.1234
-                }
+                },
+                teams: [{
+                    _id: "123",
+                    name: "World XI",
+                    owner: "AY",
+                    userIds: ["Farhan", "Anirudh"]
+                }, {
+                    _id: "345",
+                    name: "Gully XI",
+                    owner: "AvK",
+                    userIds: ["Amrith"]
+                }]
             },
             feeds: [{
                 title: "Join me for #Footy",
@@ -96,12 +118,22 @@ angular.module('goplay.services')
             return _people;
         }
 
+        function getPerson(id) {
+            for (var i = 0; i < _people.length; i++) {
+                var person = _people[i];
+                if(person.id == id)
+                    return person;
+            }
+            return null;
+        }
+
         return {
             getCategory,
             setCategory,
             getCategories,
             setCategories,
             getEvents,
-            getPeople
+            getPeople,
+            getPerson
         }
     })

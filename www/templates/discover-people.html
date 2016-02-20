@@ -9,7 +9,7 @@
     <ion-content>
         <div class="discover-tab">
             <div class="list card event" ng-repeat="item in people | filter:searchTerm">
-                <div class="item item-avatar">
+                <div class="item item-avatar" ng-click="goToProfile(item)">
                     <img src="https://images.unsplash.com/photo-1444146644393-241099c1593d?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=529371b214d75f5358fff0e29468f505">
                     <h2>{{item.name}}</h2>
                     <p>{{item.status}}</p>

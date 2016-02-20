@@ -12,7 +12,7 @@
     text-align: center;
 }
 
-.event .distance {
+.event .distance, .event .time {
     float: right;
     font-size: 11x;
 }
@@ -32,18 +32,4 @@
 .event .feed {
     height: 250px;
     background-size: cover;
-}
-
-.event .feed:after {
-    content: '';
-    position: absolute;
-    width: inherit;
-    height: inherit;
-    top: 0;
-    left: 0;
-    background: rgba(255, 0, 92, 0.6);
-}
-
-.tinted-image {
-    background: linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(image.jpg);
 }
