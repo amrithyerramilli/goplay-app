@@ -12,10 +12,19 @@
     </ion-side-menu-content>
     <ion-side-menu side="left">
         <ion-content>
-            Profile here
+            <div class="list card">
+                <div class="item item-avatar" ng-click="goToProfile(user)">
+                    <img ng-src="{{user.image}}">
+                    <h2>{{user.name}}</h2>
+                    <p>{{user.status}}</p>
+                </div>
+            </div>
             <ion-list>
                 <ion-item menu-close ui-sref="feels">
-                    Feels
+                    I Feel Like
+                </ion-item>
+                <ion-item menu-close ui-sref="login">
+                    Login
                 </ion-item>
             </ion-list>
         </ion-content>

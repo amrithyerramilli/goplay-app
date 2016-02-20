@@ -1,5 +1,5 @@
 angular.module('goplay.services')
-    .factory('dataFactory', function($rootScope) {
+    .factory('dataFactory', function($rootScope, $q, $timeout) {
         var _user = null;
         var _category = null;
         var _categories = ["Football", "Badminton", "Tennis", "Cricket", "Badass"];
@@ -121,10 +121,24 @@ angular.module('goplay.services')
         function getPerson(id) {
             for (var i = 0; i < _people.length; i++) {
                 var person = _people[i];
-                if(person.id == id)
+                if (person.id == id)
                     return person;
             }
             return null;
+        }
+
+        function loginUser(model) {
+
+            var x = $q.defer();
+            $timeout(function() {
+                x.resolve("ok");
+                _user = _people[0];
+            }, 1000);
+            return x.promise;
+        }
+
+        function getUser() {
+            return _user || _people[0];
         }
 
         return {
@@ -134,6 +148,8 @@ angular.module('goplay.services')
             setCategories,
             getEvents,
             getPeople,
-            getPerson
+            getPerson,
+            loginUser,
+            getUser
         }
     })

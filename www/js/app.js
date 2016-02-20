@@ -31,7 +31,13 @@ angular.module('goplay', ['ionic', 'goplay.controllers'])
 
 .config(function($stateProvider, $urlRouterProvider) {
 
-    $stateProvider.state('feels', {
+    $stateProvider
+        .state('login', {
+            url: '/login',
+            templateUrl: 'templates/login.html',
+            controller: 'LoginCtrl'
+        })
+        .state('feels', {
             url: '/feels',
             templateUrl: 'templates/feels.html',
             controller: 'FeelsCtrl'
@@ -40,7 +46,7 @@ angular.module('goplay', ['ionic', 'goplay.controllers'])
             url: '/play',
             abstract: true,
             templateUrl: 'templates/play.html', // side menu
-            // controller:'PlayCtrl'
+            controller:'PlayCtrl'
         })
         .state('play.discover', {
             url: '/discover',
@@ -75,7 +81,7 @@ angular.module('goplay', ['ionic', 'goplay.controllers'])
             controller: 'ProfileCtrl'
         });
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/feels');
+    $urlRouterProvider.otherwise('/login');
 });
 
 angular.module('goplay.services', []);
