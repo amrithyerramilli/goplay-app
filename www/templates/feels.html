@@ -1,0 +1,36 @@
+<ion-view view-title="Feels">
+    <ion-content scroll="false" padding="true" class="feels-container">
+        <div class="feels-content">
+            <div class="row row-center">
+                <div class="col col-center">
+                    <span>I feel like</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="list card list-inset">
+                        <label class="item item-input">
+                            <label class="item item-input">
+                                <input type="search" placeholder="Choose your sport.." ng-model="vm.searchTerm" ng-change="search()">
+                            </label>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row" ng-hide="vm.SearchTerm">
+                <div class="col">
+                    <div class="list card list-inset">
+                        <div class="item" ng-if="vm.searchTerm" ng-repeat="category in categories | filter:vm.searchTerm" ng-click="selectCategory(category)">
+                            {{category}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bar bar-footer">
+            <div class="title" style="font-size : 11px; color: #737373">
+                <a href="#/play/discover/events">Skip</a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
