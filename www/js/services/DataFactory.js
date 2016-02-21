@@ -2,9 +2,9 @@ angular.module('goplay.services')
     .factory('dataFactory', function($rootScope, $q, $timeout, $http, $log) {
         var _user = null;
         var _tag = null;
-        var _tags = ["Football", "Badminton", "Tennis", "Cricket", "Badass"];
-        // var baseUrl = "http://inmobi.southcentralus.cloudapp.azure.com:9000";
-        var baseUrl = "http://localhost:8100"
+        var _tags = ["Football", "Badminton", "Tennis", "Cricket", "Squash", "Swimming"];
+        var baseUrl = "http://inmobi.southcentralus.cloudapp.azure.com:9000";
+        // var baseUrl = "http://localhost:8100"
         var _events = [];
         var _people = [];
         // var _events = [{
@@ -165,7 +165,7 @@ angular.module('goplay.services')
                 x.resolve(_user);
                 getPeople();
             }, function(error) {
-                $log.error(err);
+                $log.error(error);
             });
 
             return x.promise;
@@ -182,7 +182,49 @@ angular.module('goplay.services')
             var x = $q.defer();
             $http.get(baseUrl + "/event/join", { params: data }).then(function(response) {
                 $log.log(response);
+                x.resolve("ok");
             }, function(error) {
+                $log.error(error);
+                x.reject("crap");
+            });
+            return x.promise;
+        }
+
+        function getUserFeeds(userId) {
+            var x = $q.defer();
+            $http.get(baseUrl + "/user/feed/" + userId).then(function(response) {
+                x.resolve(response);
+                $log.log(response);
+            }, function(error) {
+                x.reject(error);
+                $log.error(error);
+            });
+            return x.promise;
+        }
+
+        function getNearbyPlaces() {
+            var x = $q.defer();
+            var placeBase = "http://40.84.159.43:8000/events";
+            // var placeBase = "http://localhost:8100/events";
+
+            $http.post(placeBase + "/v1/getplace/", { latitude: _user.location.latitude, longitude: _user.location.longitude, category: "Football" }).then(function(response) {
+                x.resolve(response);
+                $log.log(response);
+            }, function(error) {
+                x.reject(error);
+                $log.error(error);
+            });
+            return x.promise;
+        }
+
+        function createEvent(data) {
+            var x = $q.defer();
+            
+            $http.post(baseUrl + "/event/new", data).then(function(response) {
+                x.resolve(response);
+                $log.log(response);
+            }, function(error) {
+                x.reject(error);
                 $log.error(error);
             });
             return x.promise;
@@ -198,6 +240,9 @@ angular.module('goplay.services')
             getPerson,
             loginUser,
             getUser,
-            joinEvent
+            joinEvent,
+            getUserFeeds,
+            getNearbyPlaces,
+            createEvent
         }
     })

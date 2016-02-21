@@ -1,5 +1,10 @@
 /* Empty. Add your own CSS if you like */
 
+.scroll-content {
+    background-image: url(../img/norwegian_rose.png);
+    /*background-size: cover;*/
+}
+
 .feels-container {
     display: table !important;
     width: 100% !important;
@@ -12,7 +17,8 @@
     text-align: center;
 }
 
-.event .distance, .event .time {
+.event .distance,
+.event .time {
     float: right;
     font-size: 11x;
 }

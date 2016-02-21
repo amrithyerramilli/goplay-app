@@ -2,7 +2,7 @@ angular.module('goplay.controllers')
     .controller('FeelsCtrl', function($scope, $rootScope, $ionicModal, $timeout, $log, $state, apiService, dataFactory) {
         $scope.tags = [];
         // $scope.vm = {};
-        $scope.searchTerm = null;
+        $scope.searchTerm = "";
         $scope.selectTag = function(tag) {
             dataFactory.setTag(tag);
             $state.go('play.discover.events');

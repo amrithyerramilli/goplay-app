@@ -1,9 +1,9 @@
 <ion-view view-title="Feels">
-    <ion-content scroll="false" padding="true" class="feels-container">
-        <div class="feels-content">
+    <ion-content scroll="true" padding="true">
+        <div class="">
             <div class="row row-center">
                 <div class="col col-center">
-                    <span>I feel like</span>
+                    <h1>I feel like playing</h1>
                 </div>
             </div>
             <div class="row">
@@ -17,20 +17,20 @@
                     </div>
                 </div>
             </div>
-            <div class="row" ng-hide="SearchTerm">
+            <div class="row" style="min-height: 230px; max-height: 200px">
                 <div class="col">
                     <div class="list card list-inset">
-                        <div class="item" ng-if="searchTerm" ng-repeat="tag in tags | filter:searchTerm" ng-click="selectTag(tag)">
+                        <div class="item" ng-repeat="tag in tags | filter:searchTerm" ng-click="selectTag(tag)">
                             {{tag}}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="bar bar-footer">
-            <div class="title" style="font-size : 11px; color: #737373">
-                <a href="#/play/discover/events">Skip</a>
-            </div>
-        </div>
     </ion-content>
+    <div class="bar bar-footer">
+        <div class="title" style="font-size : 11px; color: #737373">
+            <a href="#/play/discover/events">Skip</a>
+        </div>
+    </div>
 </ion-view>

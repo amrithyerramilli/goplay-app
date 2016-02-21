@@ -21,12 +21,12 @@ angular.module('goplay', ['ionic', 'goplay.controllers'])
         }
     });
 
-    // $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
-    //     $ionicLoading.show({ template: '<ion-spinner></ion-spinner>' });
-    //     $timeout(function() {
-    //         $ionicLoading.hide();
-    //     }, 1000);
-    // });
+    $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
+        $ionicLoading.show({ template: '<ion-spinner></ion-spinner>' });
+        $timeout(function() {
+            $ionicLoading.hide();
+        }, 1000);
+    });
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
@@ -46,7 +46,7 @@ angular.module('goplay', ['ionic', 'goplay.controllers'])
             url: '/play',
             abstract: true,
             templateUrl: 'templates/play.html', // side menu
-            controller:'PlayCtrl'
+            controller: 'PlayCtrl'
         })
         .state('play.discover', {
             url: '/discover',
@@ -79,6 +79,20 @@ angular.module('goplay', ['ionic', 'goplay.controllers'])
             url: '/profile/:userId',
             templateUrl: 'templates/profile.html',
             controller: 'ProfileCtrl'
+        })
+        .state('play.map', {
+            url: '/map',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/map.html',
+                    controller: 'MapCtrl'
+                }
+            }
+        })
+        .state('createevent', {
+            url: '/createevent/:id',
+            templateUrl: 'templates/createevent.html',
+            controller: 'CreateCtrl'
         });
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/login');

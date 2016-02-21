@@ -1,5 +1,5 @@
 <ion-side-menus enable-menu-with-back-views="false">
-    <ion-side-menu-content>
+    <ion-side-menu-content edge-drag-threshold="false">
         <ion-nav-bar class="bar-positive has-tabs-top">
             <ion-nav-back-button>
             </ion-nav-back-button>
@@ -14,7 +14,7 @@
         <ion-content>
             <div class="list card">
                 <div class="item item-avatar" ng-click="goToProfile(user)">
-                    <img ng-src="{{user.image}}">
+                    <img ng-src="{{user.profileURL}}">
                     <h2>{{user.name}}</h2>
                     <p>{{user.status}}</p>
                 </div>
@@ -25,6 +25,9 @@
                 </ion-item>
                 <ion-item menu-close ui-sref="login">
                     Login
+                </ion-item>
+                <ion-item menu-close ui-sref="play.map">
+                    Nearby
                 </ion-item>
             </ion-list>
         </ion-content>

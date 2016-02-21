@@ -1,6 +1,6 @@
 angular.module('goplay.controllers')
     .controller('LoginCtrl', function($scope, $ionicModal, $timeout, dataFactory, $state, $ionicPlatform, $q) {
-        $scope.loginModel = { username: "Amrith" };
+        $scope.loginModel = { username: "Anirudh" };
         $scope.login = login;
 
         function login() {
