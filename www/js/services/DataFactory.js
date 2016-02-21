@@ -2,9 +2,9 @@ angular.module('goplay.services')
     .factory('dataFactory', function($rootScope, $q, $timeout, $http, $log) {
         var _user = null;
         var _tag = null;
-        var _tags = ["Football", "Badminton", "Tennis", "Cricket", "Squash", "Swimming"];
-        var baseUrl = "http://inmobi.southcentralus.cloudapp.azure.com:9000";
-        // var baseUrl = "http://localhost:8100"
+        var _tags = ["Football", "Gym", "Pool", "Badminton", "Squash"];
+        // var baseUrl = "http://inmobi.southcentralus.cloudapp.azure.com:9000";
+        var baseUrl = "http://localhost:8100"
         var _events = [];
         var _people = [];
         // var _events = [{
@@ -204,8 +204,8 @@ angular.module('goplay.services')
 
         function getNearbyPlaces() {
             var x = $q.defer();
-            var placeBase = "http://40.84.159.43:8000/events";
-            // var placeBase = "http://localhost:8100/events";
+            // var placeBase = "http://40.84.159.43:8000/events";
+            var placeBase = "http://localhost:8100/events";
 
             $http.post(placeBase + "/v1/getplace/", { latitude: _user.location.latitude, longitude: _user.location.longitude, category: "Football" }).then(function(response) {
                 x.resolve(response);
@@ -219,8 +219,21 @@ angular.module('goplay.services')
 
         function createEvent(data) {
             var x = $q.defer();
-            
+
             $http.post(baseUrl + "/event/new", data).then(function(response) {
+                x.resolve(response);
+                $log.log(response);
+            }, function(error) {
+                x.reject(error);
+                $log.error(error);
+            });
+            return x.promise;
+        }
+
+        function getStepCharts() {
+            var x = $q.defer();
+
+            $http.get(baseUrl + "/fitness").then(function(response) {
                 x.resolve(response);
                 $log.log(response);
             }, function(error) {
@@ -243,6 +256,7 @@ angular.module('goplay.services')
             joinEvent,
             getUserFeeds,
             getNearbyPlaces,
-            createEvent
+            createEvent,
+            getStepCharts
         }
     })

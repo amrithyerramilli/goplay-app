@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('goplay', ['ionic', 'goplay.controllers'])
+angular.module('goplay', ['ionic', 'highcharts-ng', 'goplay.controllers'])
 
 .run(function($ionicPlatform, $rootScope, $ionicLoading, $timeout) {
     $ionicPlatform.ready(function() {
@@ -99,4 +99,4 @@ angular.module('goplay', ['ionic', 'goplay.controllers'])
 });
 
 angular.module('goplay.services', []);
-angular.module('goplay.controllers', ['goplay.services']);
+angular.module('goplay.controllers', ['highcharts-ng','goplay.services']);

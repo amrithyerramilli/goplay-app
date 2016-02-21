@@ -1,9 +1,10 @@
 angular.module('goplay.controllers')
-    .controller('MapCtrl', function($ionicPlatform, $timeout, $scope, $rootScope, $q, $state, dataFactory, $log) {
+    .controller('MapCtrl', function($ionicPlatform, $timeout, $scope, $rootScope, $q, $state, dataFactory, $log, $ionicLoading) {
         $scope.refresh = function() {
-            $state.go($state.current, {}, {reload: true});
+            $state.go($state.current, {}, { reload: true });
         }
         $scope.$on('$ionicView.enter', function(e) {
+            $ionicLoading.show({ template: '<ion-spinner></ion-spinner>' });
             $scope.$broadcast('show-loader');
             var selectedPlaces = []; // get places
 
@@ -15,6 +16,8 @@ angular.module('goplay.controllers')
                 $scope.$broadcast('scroll.refreshComplete');
             }, function(error) {
                 $log.error(error);
+            }).finally(function() {
+                $ionicLoading.hide();
             })
 
             $scope.geolocation = dataFactory.getUser().location;

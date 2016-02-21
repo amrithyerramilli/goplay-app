@@ -1,14 +1,10 @@
 angular.module('goplay.controllers')
     .controller('EventsCtrl', function($scope, $rootScope, $log, dataFactory, $ionicPopup, $timeout) {
-        $scope.tag = "";
         $scope.eventFeed = [];
         $scope.searchTerm = "";
 
         $scope.$on('$ionicView.enter', function() {
-            if (!$scope.tag && dataFactory.getTag()) {
-                $scope.tag = dataFactory.getTag()
-                $scope.searchTerm = $scope.tag;
-            };
+            $scope.searchTerm = dataFactory.getTag() || "";            
             if ($scope.eventFeed.length == 0) {
                 getEvents();
             }

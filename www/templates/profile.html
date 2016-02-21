@@ -16,16 +16,21 @@
                 <img ng-src='{{profile.profileURL || "https://images.unsplash.com/photo-1442458370899-ae20e367c5d8?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=a980276c24e48b47f59803dc6d52d277"}}'>
                 <h2>{{profile.name}}</h2>
                 <p>{{profile.status}}</p>
-            </div>            
+            </div>
         </div>
-        <div class="item item-divider">
+        <!-- <div class="item item-divider">
             &nbsp;
+        </div> -->
+        <div class="list card">
+            <div class="item" style="height: 300px;">
+                <highchart id="stepchart" config="stepChartConfig"></highchart>
+            </div>
         </div>
         <div class="list card" ng-repeat="feed in feeds">
             <div class="item item-image">
                 <img ng-src="{{feed.url}}" style="max-height: 250px; width: auto">
             </div>
-            <a class="item assertive" ng-href="#" ng-click="gotoAd(feed.link)" >
+            <a class="item assertive" ng-href="#" ng-click="gotoAd(feed.link)">
                 {{feed.title}} <span class="badge badge-assertive">{{feed.tag}}</span>
             </a>
         </div>

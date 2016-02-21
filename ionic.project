@@ -1,22 +1,17 @@
 {
-  "name": "goplay",
-  "app_id": "",
-  "proxies": [
-    {
-      "path": "/user",
-      "proxyUrl": "http://inmobi.southcentralus.cloudapp.azure.com:9000/user/"
-    },
-    {
-      "path": "/event",
-      "proxyUrl": "http://inmobi.southcentralus.cloudapp.azure.com:9000/event/"
-    },
-    {
-      "path": "/user/",
-      "proxyUrl": "http://inmobi.southcentralus.cloudapp.azure.com:9000/user/"
-    },
-    {
-      "path": "/events",
-      "proxyUrl": "http://40.84.159.43:8000/events/"
-    }
-  ]
+    "name": "goplay",
+    "app_id": "",
+    "proxies": [{
+        "path": "/event",
+        "proxyUrl": "http://inmobi.southcentralus.cloudapp.azure.com:9000/event"
+    }, {
+        "path": "/user",
+        "proxyUrl": "http://inmobi.southcentralus.cloudapp.azure.com:9000/user"
+    }, {
+        "path": "/events",
+        "proxyUrl": "http://40.84.159.43:8000/events"
+    }, {
+        "path": "/fitness",
+        "proxyUrl": "http://inmobi.southcentralus.cloudapp.azure.com:9000/fitness"
+    }]
 }

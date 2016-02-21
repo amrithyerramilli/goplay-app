@@ -11,6 +11,7 @@ angular.module('goplay.controllers')
         $scope.$on('$ionicView.enter', function() {
             if ($scope.tags.length == 0)
                 $scope.tags = dataFactory.getTags();
+            $scope.searchTerm = dataFactory.getTag() || "";
         });
 
         // on refresh
