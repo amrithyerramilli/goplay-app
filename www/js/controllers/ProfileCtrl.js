@@ -5,11 +5,8 @@ angular.module('goplay.controllers')
 
         $scope.$on('$ionicView.enter', function() {
             console.log($stateParams);
-            if (!$scope.selectedUserId) {
-
-                $scope.selectedUserId = $stateParams.userId;
-                $scope.profile = dataFactory.getPerson($scope.selectedUserId);
-            }
+            $scope.selectedUserId = $stateParams.userId;
+            $scope.profile = dataFactory.getPerson($scope.selectedUserId);
 
         });
     });

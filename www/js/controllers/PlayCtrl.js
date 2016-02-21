@@ -4,6 +4,6 @@ angular.module('goplay.controllers')
         $scope.goToProfile = goToProfile;
 
         function goToProfile(person) {
-            $state.go('profile', { userId: person.id });
+            $state.go('profile', { userId: person._id });
         }
     });

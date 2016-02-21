@@ -20,8 +20,8 @@
             <div class="row" ng-hide="SearchTerm">
                 <div class="col">
                     <div class="list card list-inset">
-                        <div class="item" ng-if="searchTerm" ng-repeat="category in categories | filter:searchTerm" ng-click="selectCategory(category)">
-                            {{category}}
+                        <div class="item" ng-if="searchTerm" ng-repeat="tag in tags | filter:searchTerm" ng-click="selectTag(tag)">
+                            {{tag}}
                         </div>
                     </div>
                 </div>

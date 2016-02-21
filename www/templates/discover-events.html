@@ -6,10 +6,12 @@
         </label>
     </div>
     <ion-content>
+        <ion-refresher pulling-text="Pull to refresh..." on-refresh="getEvents(true)">
+        </ion-refresher>
         <div class="discover-tab">
             <div class="list card event" ng-repeat="item in eventFeed | filter:searchTerm">
                 <div class="item">
-                    <div style="font-weight: bold">{{item.event.title}}</div>
+                    <div style="font-weight: bold">{{item.event.name}}</div>
                     <span class="location-name"><i class="ion-ios-location"></i> {{item.event.location.name}}</span>
                     <!-- <span ng-if="item.event.distance" class="distance">
                         <i class="ion-ios-navigate-outline"></i> 
@@ -23,10 +25,10 @@
                 <div class="item item-body feed-container">
                     <ion-slide-box on-slide-changed="slideHasChanged($index)">
                         <ion-slide ng-repeat="feed in item.feeds">
-                            <div class="feed" ng-style="{'background-image':'url({{feed.media}})'}">
+                            <div class="feed" ng-style="{'background-image':'url({{feed.url}})'}">
                                 <div style="position: relative; top: 0; left: 0; background-color: rgba(0, 0, 0, 0.45); height: 250px"></div>
                                 <div class="row" style="position: absolute; top: 0%;height: 100%">
-                                    <div class="col col-offset-90 col-top" style="color: white;z-index: 10000" ><i class="ion-android-person-add" style="font-size: 25px;" ng-click="joinEvent(item)"></i></div>
+                                    <div class="col col-offset-90 col-top" style="color: white;z-index: 10000"><i class="ion-android-person-add" style="font-size: 25px;" ng-click="joinEvent(item)"></i>{{item.event.people.current}}/{{item.event.people.max}}</div>
                                 </div>
                                 <div class="row row-center" style="position: absolute; top: 0%;height: 100%">
                                     <div class="col col-center" style="color: white">{{feed.title}}</div>

@@ -1,4 +1,18 @@
 {
   "name": "goplay",
-  "app_id": ""
+  "app_id": "",
+  "proxies": [
+    {
+      "path": "/user",
+      "proxyUrl": "http://inmobi.southcentralus.cloudapp.azure.com:9000/user/"
+    },
+    {
+      "path": "/event",
+      "proxyUrl": "http://inmobi.southcentralus.cloudapp.azure.com:9000/event/"
+    },
+    {
+      "path": "/user/",
+      "proxyUrl": "http://inmobi.southcentralus.cloudapp.azure.com:9000/user/"
+    }
+  ]
 }

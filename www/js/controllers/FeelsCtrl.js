@@ -1,16 +1,16 @@
 angular.module('goplay.controllers')
     .controller('FeelsCtrl', function($scope, $rootScope, $ionicModal, $timeout, $log, $state, apiService, dataFactory) {
-        $scope.categories = [];
+        $scope.tags = [];
         // $scope.vm = {};
         $scope.searchTerm = null;
-        $scope.selectCategory = function(category) {
-            dataFactory.setCategory(category);
+        $scope.selectTag = function(tag) {
+            dataFactory.setTag(tag);
             $state.go('play.discover.events');
         }
 
         $scope.$on('$ionicView.enter', function() {
-            if ($scope.categories.length == 0)
-                $scope.categories = dataFactory.getCategories();
+            if ($scope.tags.length == 0)
+                $scope.tags = dataFactory.getTags();
         });
 
         // on refresh
